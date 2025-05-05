@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gokul Thapa Magar | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  
+
+  <script>
+    function showAlert() {
+      alert("Thank you for reaching out, Gokul will get back to you soon!");
+    }
+
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+  </script>
+</head>
+
+<body>
+  <button class="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
+  <div class="container">
+    <header>
+        <canvas class="to" id="particleCanvas"></canvas>
+      <img src="gokullll.jpg" alt="Gokul Profile Picture" class="profile-pic">
+      <h1>Gokul Thapa Magar</h1>
+      <p>Full Time Student | Psychology Major</p>
+      <div class="quote">“Books are a uniquely portable magic.” – Stephen King</div>
+    </header>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#admire">Admire</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="about">
+      <h2>About Me</h2>
+      <div class="card">
+        <p>Hello! I'm <strong>Gokul</strong>, a full-time student, passionate learner, and someone who finds joy in both solitude and collaboration. I currently serve as the Secretary of SOS Reader's Club and was the President of PCEC Child Club. I'm excited to pursue <strong>Psychology</strong> as my academic path to understand human behavior and foster mental wellness.</p>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="flex">
+        <div class="card">
+          <h3>Soft Skills</h3>
+          <ul>
+            <li>Leadership</li>
+            <li>Communication</li>
+            <li>Organizational Ability</li>
+            <li>Empathy & Listening</li>
+            <li>Public Speaking</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Hard Skills</h3>
+          <ul>
+            <li>Cooking</li>
+            <li>Event Planning</li>
+            <li>Academic Excellence</li>
+            <li>Research & Writing</li>
+            <li>Digital Literacy</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="admire">
+      <h2>What i like to do</h2>
+      <div class="card">
+        <h3>Reader</h3>
+        <p>My journey with books started with <em>"The Wizard of Oz"</em>. Since then, I’ve devoured over 250 books ranging from fantasy to philosophy. Reading enriches my mind and perspective.</p>
+      </div>
+      <div class="card">
+        <h3>Nature Enthusiast</h3>
+        <p>Long walks under open skies and amidst trees help me reflect and recharge. I find clarity in silence and strength in solitude.</p>
+      </div>
+    </section>
+
+    <section id="achievements">
+      <h2>Achievements</h2>
+      <div class="card">
+        <ul>
+          <li>President of PCEC Child Club (2022-23)</li>
+          <li>Secretary of SOS Reader’s Club (Current)</li>
+          <li>School Topper for 3 consecutive years</li>
+          <li>Organizer of Annual Book Week</li>
+          <li>Inter-School Speech Competition Winner</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="card">
+        <h3>Mental Health Awareness Campaign</h3>
+        <p>Collaborated with NGOs to host interactive sessions for students on mental health and emotional well-being, reaching over 200 students.</p>
+      </div>
+      <div class="card">
+        <h3>Library Revival Program</h3>
+        <p>Led a team to organize and digitize the school library, improving access and usage rates by 60% within 3 months.</p>
+      </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+      
+        <div class="contact-info">
+          <p><strong>Email:</strong> <a href="mailto:gokulthapamagar10@gmail.com">gokulthapamagar10@gmail.com</a></p>
+      
+          <div class="social-icons">
+            <a href="https://www.linkedin.com/in/gokul-thapa-magar-041880350/" target="_blank" class="icon linkedin">LinkedIn</a>
+            <a href="https://www.facebook.com/gokul.thapamagar.92" target="_blank" class="icon facebook">Facebook</a>
+            <a href="https://www.instagram.com/gokulmagar_/?next=%2F" target="_blank" class="icon instagram">Instagram</a>
+          </div>
+        </div>
+      
+       
+      </section>
+
+    <footer>
+      <p>© 2025 Gokul Thapa Magar. All rights reserved. | Designed with ❤️</p>
+    </footer>
+  </div>
+  <script>
+    const canvas = document.getElementById('particleCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // Set canvas size
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    // Create particles
+    const particles = [];
+    const numParticles = 150;
+
+    for (let i = 0; i < numParticles; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 2 + 1,
+        speedY: Math.random() * 1 + 0.5,
+        opacity: Math.random() * 0.5 + 0.5
+      });
+    }
+
+    function drawParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = 'white';
+      particles.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 255, 255, ${p.opacity})`;
+        ctx.fill();
+        p.y += p.speedY;
+
+        // Reset particle if it falls off screen
+        if (p.y > canvas.height) {
+          p.y = -10;
+          p.x = Math.random() * canvas.width;
+        }
+      });
+      requestAnimationFrame(drawParticles);
+    }
+
+    drawParticles();
+  </script>
+</body>
+
+</html>
