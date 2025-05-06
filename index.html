@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,31 +8,24 @@
   <link rel="stylesheet" href="style.css">
   
 
-  <script>
-    function showAlert() {
-      alert("Thank you for reaching out, Gokul will get back to you soon!");
-    }
-
-    function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
-    }
-  </script>
+ 
 </head>
 
 <body>
-  <button class="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
 
+  
+ 
   <div class="container">
     <header>
         <canvas class="to" id="particleCanvas"></canvas>
-      <img src="gokullll.jpg" alt="Gokul Profile Picture" class="profile-pic">
+      <img src="kale dai.jpg" alt="Gokul Profile Picture" class="profile-pic">
       <h1>Gokul Thapa Magar</h1>
       <p>Full Time Student | Psychology Major</p>
       <div class="quote">“Books are a uniquely portable magic.” – Stephen King</div>
     </header>
 
-    <nav>
-      <a href="#home">Home</a>
+    <nav class="hi">
+   
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#admire">Admire</a>
@@ -74,7 +68,7 @@
     </section>
 
     <section id="admire">
-      <h2>What i like to do</h2>
+      <h2>What I like to do</h2>
       <div class="card">
         <h3>Reader</h3>
         <p>My journey with books started with <em>"The Wizard of Oz"</em>. Since then, I’ve devoured over 250 books ranging from fantasy to philosophy. Reading enriches my mind and perspective.</p>
@@ -130,6 +124,7 @@
       <p>© 2025 Gokul Thapa Magar. All rights reserved. | Designed with ❤️</p>
     </footer>
   </div>
+  
   <script>
     const canvas = document.getElementById('particleCanvas');
     const ctx = canvas.getContext('2d');
@@ -177,6 +172,16 @@
 
     drawParticles();
   </script>
+  <script>
+    window.addEventListener('scroll', function () {
+  const scrolled = window.scrollY;
+  const parallax = document.getElementById('parallax-bg');
+  parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
+});
+
+  </script>
 </body>
 
 </html>
+index.html
+Displaying index.html.
